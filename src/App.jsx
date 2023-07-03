@@ -25,7 +25,8 @@ function App() {
     function handleSubmit(e) {
       e.preventDefault()
 
-      // if (!description) return
+      if (!description) return
+
       const newItem = { description, id: Date.now() }
       console.log(newItem)
       setDescription("")
@@ -39,15 +40,13 @@ function App() {
         <form onSubmit={handleSubmit} className="add-form">
           <h1>Todo</h1>
           <input className="textfield"
-            input maxLength={10}
+            input maxLength={20}
             placeholder="Add a todo"
             type="text"
             value={description}
-            onChange={e => {
+            onChange={e =>
               // console.log(e.target.value)
               setDescription(e.target.value)
-            }
-
             }
           />
           <div className="myb">
